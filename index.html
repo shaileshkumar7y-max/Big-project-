@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#100b10">
+  <meta name="description" content="Halloween After Dark — a grown-up, playful Halloween world for fashion, art and consent-first party games.">
+  <title>After Dark — Halloween Edition</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
+  <div class="ambient ambient-a" aria-hidden="true"></div>
+  <div class="ambient ambient-b" aria-hidden="true"></div>
+
+  <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+    <div class="gate-card">
+      <div class="gate-mark">AD<span>✦</span></div>
+      <p class="eyebrow">HALLOWEEN / AFTER HOURS</p>
+      <h1 id="ageTitle">The night is yours.<br><em>Own your limits.</em></h1>
+      <p>This experience is designed for adults aged 18+. It includes flirtatious fashion and playful party prompts. All activities are optional, non-explicit and consent-first.</p>
+      <button class="button button-primary button-wide" data-action="confirm-age">I am 18 or older — enter</button>
+      <button class="text-button" data-action="leave-age">I am under 18</button>
+      <small>Age reminder only. This is not identity or age verification.</small>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="After Dark home" data-action="go-home">
+      <span class="brand-mark">AD<span>✦</span></span>
+      <span class="brand-name">AFTER DARK<small>HALLOWEEN EDITION</small></span>
+    </a>
+    <div class="top-actions">
+      <span class="xp-pill">✦ <b id="xpValue">000</b> XP</span>
+      <button class="icon-button" type="button" aria-label="Open profile" data-action="go-profile">♙</button>
+    </div>
+  </header>
+
+  <main id="mainContent" class="app-shell">
+    <section class="view is-active" id="view-home" data-view-panel="home">
+      <section class="hero-card">
+        <img class="hero-image" src="../blacked-luxury-campaign.webp" alt="Black luxury Halloween-inspired fashion campaign" fetchpriority="high">
+        <div class="hero-shade"></div>
+        <div class="hero-content">
+          <p class="eyebrow"><span class="live-dot"></span> ONE NIGHT. MANY MOODS.</p>
+          <h1>Beautifully<br><em>wicked.</em></h1>
+          <p class="hero-copy">A darker kind of after-hours: gothic fashion, art discovery and playful chemistry games. Your vibe. Your rules.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" data-action="go-play">Enter the games <span>↗</span></button>
+            <button class="button button-glass" data-action="go-shop">Explore the edit</button>
+          </div>
+          <div class="hero-meta"><span>18+ SELF-ATTESTED</span><i></i><span>NON-EXPLICIT</span><i></i><span>PASS ANY TIME</span></div>
+        </div>
+        <div class="hero-stamp">AFTER<br><b>DARK</b><span>VOL. 01</span></div>
+      </section>
+
+      <section class="welcome-row">
+        <div><p class="eyebrow">TONIGHT'S INVITATION</p><h2 id="welcomeTitle">Welcome to your wicked side.</h2><p class="muted">Pick one mood and make the night yours.</p></div>
+        <button class="text-button" data-action="go-profile">Set your name ↗</button>
+      </section>
+
+      <section class="mood-grid" aria-label="Choose a mood">
+        <button class="mood-card mood-vampire" data-action="mood" data-mood="Vampire Velvet"><span>01 / VELVET</span><b>Vampire<br>Velvet</b><small>Dark romance · mystery</small></button>
+        <button class="mood-card mood-witch" data-action="mood" data-mood="Witching Hour"><span>02 / SPELLBOUND</span><b>Witching<br>Hour</b><small>Playful · unpredictable</small></button>
+        <button class="mood-card mood-phantom" data-action="mood" data-mood="Phantom Gold"><span>03 / AFTERGLOW</span><b>Phantom<br>Gold</b><small>Glamour · confidence</small></button>
+      </section>
+
+      <section class="section-block">
+        <div class="section-heading"><div><p class="eyebrow">THE MAIN EVENT</p><h2>Tonight's <em>little obsessions.</em></h2></div><button class="text-button" data-action="go-play">See all ↗</button></div>
+        <div class="feature-grid">
+          <article class="feature-card feature-tall">
+            <img src="../her-after-dark.webp" alt="HER AFTER DARK campaign styling" loading="lazy">
+            <div class="feature-overlay"><span>01 / FLIRT & PLAY</span><h3>Midnight<br>Chemistry</h3><p>A playful two-person vibe match.</p><button class="button button-light" data-action="open-feature" data-feature="chemistry">Try the match ↗</button></div>
+          </article>
+          <article class="feature-card">
+            <img src="../mughal-royal-romance-poster.webp" alt="Royal romantic campaign artwork" loading="lazy">
+            <div class="feature-overlay"><span>02 / MYSTERY</span><h3>Masquerade Reveal</h3><button class="circle-action" aria-label="Reveal a masquerade look" data-action="open-feature" data-feature="masquerade">↗</button></div>
+          </article>
+          <article class="feature-card">
+            <img src="../black-elegance-fashion.webp" alt="Black elegance editorial styling" loading="lazy">
+            <div class="feature-overlay"><span>03 / STYLE ORACLE</span><h3>Night Outfit Oracle</h3><button class="circle-action" aria-label="Get a night outfit idea" data-action="open-feature" data-feature="outfit">↗</button></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="principle-strip">
+        <span class="principle-icon">♡</span>
+        <div><b>Confidence is the dress code.</b><p>Every game is optional. Ask first, respect every no, and keep the fun comfortable for everyone.</p></div>
+      </section>
+    </section>
+
+    <section class="view" id="view-shop" data-view-panel="shop" hidden>
+      <div class="page-intro"><p class="eyebrow">THE HALLOWEEN LOOKBOOK</p><h1>Dress for your<br><em>dark side.</em></h1><p class="muted">An editorial preview of the existing fashion and innerwear collections. Product details and shopping flows are scheduled for Phase 4.</p></div>
+      <div class="lookbook-grid">
+        <article class="lookbook-card lookbook-wide"><img src="../blxcked-runway.webp" alt="BLXCKED runway fashion campaign"><div><span>THE HOUSE SIGNATURE</span><h2>Blackout <em>Runway</em></h2><p>Sharp silhouettes. Midnight confidence.</p><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
+        <article class="lookbook-card"><img src="../pink-lace-collection.webp" alt="Pink lace fashion collection"><div><span>SOFT GOTHIC</span><h2>Rose <em>After Dark</em></h2><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
+        <article class="lookbook-card"><img src="../royal-palace-saree.webp" alt="Royal fashion editorial"><div><span>GOTHIC ROYALTY</span><h2>Velvet <em>Royale</em></h2><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
+      </div>
+      <section class="wellness-preview"><div><p class="eyebrow">COMFORT FIRST</p><h2>Feel good in<br><em>your own skin.</em></h2><p class="muted">Fit, fabric, comfort and body-positive wellness guidance will live here—not hidden behind a sales pitch.</p></div><img src="../fit-guide-detail.webp" alt="Fit guide editorial detail" loading="lazy"></section>
+    </section>
+
+    <section class="view" id="view-play" data-view-panel="play" hidden>
+      <div class="page-intro"><p class="eyebrow">18+ / CONSENT-FIRST PARTY PLAY</p><h1>Let the night<br><em>get interesting.</em></h1><p class="muted">Grown-up, playful and non-explicit. Every round has a pass button. No forced contact, photos or private disclosures.</p></div>
+      <div class="play-grid">
+        <button class="play-card play-card-featured" data-action="open-feature" data-feature="wheel"><span class="play-icon">◉</span><span class="play-kicker">SPIN / FLIRT / PASS</span><b>Haunting Dare Wheel</b><small>Flirty, bold and spooky prompts—your choice.</small><span class="play-arrow">↗</span></button>
+        <button class="play-card" data-action="open-feature" data-feature="chemistry"><span class="play-icon">♡</span><span class="play-kicker">TWO PLAYERS</span><b>Midnight Chemistry</b><small>A light-hearted compatibility game.</small><span class="play-arrow">↗</span></button>
+        <button class="play-card" data-action="open-feature" data-feature="vampire"><span class="play-icon">✦</span><span class="play-kicker">PERSONALITY QUIZ</span><b>Vampire Match</b><small>Discover your Halloween archetype.</small><span class="play-arrow">↗</span></button>
+        <button class="play-card" data-action="open-feature" data-feature="masquerade"><span class="play-icon">◈</span><span class="play-kicker">MYSTERY REVEAL</span><b>Masquerade Reveal</b><small>Unlock a secret look and a playful icebreaker.</small><span class="play-arrow">↗</span></button>
+        <button class="play-card" data-action="open-feature" data-feature="date"><span class="play-icon">☾</span><span class="play-kicker">DATE NIGHT GENERATOR</span><b>Haunted Date Oracle</b><small>Unexpected date ideas for two adults.</small><span class="play-arrow">↗</span></button>
+        <button class="play-card" data-action="open-feature" data-feature="outfit"><span class="play-icon">♢</span><span class="play-kicker">STYLE GENERATOR</span><b>Night Outfit Oracle</b><small>Gothic-glam outfit inspiration.</small><span class="play-arrow">↗</span></button>
+      </div>
+      <div class="safe-note"><b>THE HOUSE RULE</b><p>Ask, don't assume. No means no. Passing is always a full answer. Keep all play within everyone's comfort zone.</p></div>
+    </section>
+
+    <section class="view" id="view-art" data-view-panel="art" hidden>
+      <div class="page-intro"><p class="eyebrow">THE VISUAL ARCHIVE</p><h1>Art after<br><em>dark.</em></h1><p class="muted">A dedicated home for curated artwork, pose references, collections and the creator studio. The complete Art-v2 integration is Phase 3.</p></div>
+      <div class="art-feature"><img src="../user-art-preview-01.webp" alt="Curated figure-art preview" loading="lazy"><div><p class="eyebrow">NAKED CANVAS / ART STUDIO</p><h2>Beauty in every<br><em>brushstroke.</em></h2><p class="muted">Classical art, gesture, portraits and editorial studies in one calm, searchable archive.</p><a class="button button-primary" href="https://shaileshkumar7y-max.github.io/Art-v2-/" target="_blank" rel="noopener noreferrer">Open current Art Studio ↗</a></div></div>
+      <div class="art-mini-grid"><div><span>01</span><b>Curated collections</b><small>Classical, graphite and editorial.</small></div><div><span>02</span><b>Pose atlas</b><small>Reference views and movement.</small></div><div><span>03</span><b>Creator studio</b><small>Prompt builder and optional image tools.</small></div></div>
+    </section>
+
+    <section class="view" id="view-more" data-view-panel="more" hidden>
+      <div class="page-intro"><p class="eyebrow">YOUR PRIVATE CORNER</p><h1>Make it<br><em>personal.</em></h1><p class="muted">Set your display name and choose the accent mood. This phase keeps data on this device only.</p></div>
+      <section class="profile-card">
+        <div class="profile-avatar">AD</div><div class="profile-main"><p class="eyebrow">LOCAL PROFILE</p><h2 id="profileName">Night Guest</h2><p class="muted">Your progress is stored on this browser.</p></div><span class="local-pill">DEVICE ONLY</span>
+        <form id="profileForm" class="profile-form"><label for="displayName">Display name</label><input id="displayName" name="displayName" maxlength="24" autocomplete="nickname" placeholder="Choose a name"><button class="button button-primary" type="submit">Save profile</button></form>
+      </section>
+      <section class="settings-card"><div><p class="eyebrow">VISUAL MOOD</p><h2>Choose your accent</h2><p class="muted">Change the highlight colour without changing the layout.</p></div><div class="accent-options"><button class="accent-option is-selected" data-action="accent" data-accent="blood" aria-label="Blood moon accent"><i class="swatch swatch-blood"></i><span>Blood Moon</span></button><button class="accent-option" data-action="accent" data-accent="haunted" aria-label="Haunted gold accent"><i class="swatch swatch-gold"></i><span>Haunted Gold</span></button></div></section>
+      <section class="privacy-card"><span>♧</span><div><b>Privacy by default</b><p>XP, name and preferences stay in local browser storage. No public profile, remote leaderboard, online multiplayer or analytics is connected in Phase 2.</p></div></section>
+      <button class="button button-quiet button-wide reset-button" data-action="reset-progress">Reset local XP & preferences</button>
+      <p class="version-note">AFTER DARK / HALLOWEEN FOUNDATION · PHASE 2</p>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Primary navigation">
+    <button class="nav-item is-active" data-action="navigate" data-view="home"><span>⌂</span><small>Home</small></button>
+    <button class="nav-item" data-action="navigate" data-view="shop"><span>♢</span><small>Shop</small></button>
+    <button class="nav-item nav-play" data-action="navigate" data-view="play"><span>✦</span><small>Play</small></button>
+    <button class="nav-item" data-action="navigate" data-view="art"><span>▧</span><small>Art</small></button>
+    <button class="nav-item" data-action="navigate" data-view="more"><span>☷</span><small>More</small></button>
+  </nav>
+
+  <div class="modal-layer" id="modalLayer" hidden>
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head"><div><p class="eyebrow" id="modalEyebrow">AFTER DARK / PLAY</p><h2 id="modalTitle">Tonight's game</h2></div><button class="icon-button" aria-label="Close dialog" data-action="close-modal">×</button></div>
+      <div class="modal-content" id="modalContent"></div>
+      <div class="modal-foot" id="modalFoot"></div>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="./app.js" defer></script>
+</body>
+</html>
