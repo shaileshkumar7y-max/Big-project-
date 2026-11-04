@@ -1,0 +1,17 @@
+{
+  "source": "shaileshkumar7y-max/Art-v2- main branch, audited 2026-11-04",
+  "files": ["app.js", "creator.js"],
+  "ids": [
+    "ageGate", "angleSwitcher", "artCount", "artEmpty", "artFilters", "artGrid", "artModal", "artSearch",
+    "buildCreatorPrompt", "closeArtModal", "closePoseModal", "confirmAge", "connectPollinations", "copyCreatorPrompt",
+    "copyRedirectUri", "creatorAuthStatus", "creatorBudget", "creatorConnectionTitle", "creatorExpiry",
+    "creatorGenerationStatus", "creatorLighting", "creatorMedium", "creatorModel", "creatorModelNote", "creatorOutput",
+    "creatorOutputActions", "creatorOutputImage", "creatorPalette", "creatorPose", "creatorPreset", "creatorPrompt",
+    "creatorSize", "creatorSubject", "disconnectPollinations", "downloadCreatorImage", "generateCreatorImage",
+    "imageIndex", "modalArtist", "modalImage", "modalMeta", "modalMuseum", "modalRights", "modalSave", "modalTitle",
+    "nextArtwork", "openCreatorImage", "pollinationsClientId", "poseAngleLabel", "poseCount", "poseEmpty", "poseFilters",
+    "poseGrid", "poseModal", "poseModalDesc", "poseModalId", "poseModalImage", "poseModalSave", "poseModalTitle",
+    "poseSearch", "poseStage", "prevArtwork", "savedCount", "savedEmpty", "savedGrid", "shuffleCreatorIdea",
+    "sourceLink", "themeToggle", "toast"
+  ]
+}

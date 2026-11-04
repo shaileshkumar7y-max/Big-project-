@@ -1,66 +1,39 @@
-# BLACKED PUSSY INNERWEAR — Halloween Mega Merge V1
+# BLACKED PUSSY INNERWEAR — Mega Merge V1 / Phase 1–2 Stability Release
 
-A mobile-first static brand experience built incrementally on the user's `Art-v2-` repository. It combines the existing art gallery, museum/open-access Collections, Pose Atlas, My Studio artwork shelf and AI Creator with a seasonal Halloween edit, an innerwear campaign hub, and a 47-work art archive.
+A mobile-first static brand experience built incrementally on `Art-v2-`. This cumulative update integrates the earlier Halloween, Innerwear, Art Archive and Creative Studio work, while adding shared image-failure handling and small-text readability fixes.
 
-## What's included in the cumulative Phase 1–7 release
+## Included features
 
-### Phase 1 — repository baseline and asset audit
-- `Art-v2-` is the application base.
-- `New-product-` supplies selected innerwear/campaign imagery and Creator feature references.
-- `Art-` supplies the separate 47-work / 9-collection archive.
-- Root-level asset path mismatches in the existing base build were documented and repaired in this release.
+- Existing Gallery, museum/open-access Collections, Pose Atlas, AI Creator, My Studio shelf, Saved Shelf, PWA install and Halloween experience.
+- Innerwear campaign gallery with 14 image references, search, filters, campaign viewer, device-local saved looks and a device-local three-choice runway vote.
+- Separate 47-work / 9-group Art Archive with search, filters, sorting, grid/list view, load-more, viewer, favourites and recently viewed.
+- Six Creator prompt directions, local prompt drafts and a local shelf for trusted Pollinations result links.
+- Image failure fallback, reconnect retry and 10px minimum for audited compact labels in the new/updated styles.
 
-### Phase 2 — brand identity
-- Main public brand name: **BLACKED PUSSY INNERWEAR**.
-- Existing charcoal/wine/ivory/gold styling retained and extended with seasonal burgundy, purple and pumpkin accents.
-- Existing art gallery, Creator and saved-shelf flows are retained.
+## Phase 1–2 stability changes
 
-### Phase 3 — Halloween 2027 experience
-- Halloween landing section and 31 October 2027 countdown (India time).
-- Midnight Lace, Velvet Shadow and Ember Rose creative directions.
-- Campaign wall, six-outcome Mystery Mood Wheel and mobile-responsive layout.
+- Current branch comparison found the previous Phase 4–6 module files were not yet present in the inspected `main` branch. This update includes them and wires them into `index.html`.
+- All original 118 IDs found in the base `main` HTML remain in the cumulative 173-ID HTML; duplicate IDs: zero.
+- The shared image layer stores original image URLs, displays a designed fallback if a remote image fails, supplies fallback alt text when necessary, and retries failed images up to two times after reconnect. Its dependency-free behavioural smoke test is `test-image-health.mjs`.
+- Service-worker cache is advanced to `naked-canvas-shell-v10`.
+- The service worker only caches same-origin assets. Campaign, Art archive, museum and pose images from third-party hosts remain network-dependent by design.
 
-### Phase 4 — innerwear campaign hub
-- Fourteen campaign/editorial image references from `New-product-`.
-- Search, filters, campaign detail modal, local saved-look shelf and a device-local three-look runway vote.
-- Generic measurement and comfort guide.
-- There is no verified product/stock/price feed in the source, so campaign cards are not advertised as live purchasable inventory. No invented prices, SKUs or universal size conversions are shown.
+## Source image inventory
 
-### Phase 5 — 47-work Art Archive
-- Forty-seven artwork records from `Art-` in nine themed collection groups.
-- Search, category filters, A–Z/Z–A sorting, grid/list view, load more, detail viewer, previous/next, save, share and original-image links.
-- Saved and recently viewed art shelves are local to this browser.
+- Local base repository inventory: 41 image/icon files.
+- `New-product-`: 14/14 Innerwear filenames verified in the source tree; 6/6 homepage image filenames verified.
+- `Art-`: 47/47 numbered artwork filenames verified in the source tree.
+- Existing My Studio local WebP references: 19/19 present.
+- Pose Atlas source filenames: 32/32 present in the Shisei tree.
+- Existing ArtFlip sample image filenames: 8/8 present in its source tree.
 
-### Phase 6 — Creative Studio improvements
-- Six quick art-direction presets for Halloween Noir, Black Lace Editorial, Velvet Shadow Portrait, Classical Art Study, Together Campaign and Ember Rose Editorial.
-- Local saved prompt drafts (maximum 12).
-- Local My Studio output-link shelf (maximum 12 HTTPS Pollinations links).
-- Temporary blob/data outputs must be downloaded; they are not persisted as links. Quick prompts are text presets only and do not send source images to the model.
-
-### Phase 7 — final hardening and QA
-- Service worker cache version v9 includes the new app modules.
-- New storage keys are namespaced and bounded.
-- Remote GitHub image repositories are deliberately outside the service-worker cache.
-- Phase reports, image source notes, QA/security notes and Android upload instructions are included.
+These are source-tree filename checks, not a guarantee that every remote URL will load at all times in a live browser. No image binaries are copied into this patch. The source repositories must remain public and referenced filenames must not change.
 
 ## Navigation
 
 Halloween · Innerwear · Art Archive · Artworks · Collections · Pose Atlas · AI Creator · Saved.
 
-The nav remains horizontally scrollable on smaller screens rather than squeezing text into tiny labels.
-
-## Image delivery
-
-No image binaries are duplicated in this update. Innerwear campaign assets load from the public `New-product-` repository; the 47 artworks load from the public `Art-` repository. The source repositories must remain public/readable and referenced filenames must remain unchanged. Remote images require an internet connection.
-
-## Important limitations
-
-- This is a static GitHub Pages-compatible frontend. It has no backend, online cart/checkout, live inventory, shared customer account, admin analytics, online voting, public leaderboard or cloud sync.
-- Product prices, size charts, SKU values and stock availability must come from a verified product feed before checkout or exact size recommendations can be enabled.
-- The 18+ entry screen remains self-attestation only, not age/identity verification.
-- Pollinations image generation requires the user's own authorised key and approved budget. It is not guaranteed free.
-- Art- is a user-library-derived image archive, not a public-domain licence declaration. Confirm individual image rights before commercial use.
-- The separate New-product- `show-house.html` game-show project is not merged wholesale into the main brand navigation. Only relevant campaign and creative concepts were selected.
+The navigation stays horizontally scrollable on small screens. Existing application modules and browser storage are preserved; `app.js`, `creator.js`, `styles.css`, `pwa.js`, `collections.js`, `artflip-figure-index.js` and `brand-voice.js` remain base-repository files and are not replaced by this patch.
 
 ## Run locally
 
@@ -70,8 +43,26 @@ From the repository root:
 python -m http.server 8000
 ```
 
-Then open `http://localhost:8000`. Pollinations OAuth is intended for the published HTTPS Pages URL with the exact redirect URL registered in the user's App Key.
+Open `http://localhost:8000`. Pollinations OAuth is intended for the published HTTPS Pages URL with the exact redirect URL registered in the user's App Key.
 
-## Upload and test
+## Upload and verification
 
-Follow `UPLOAD-INSTRUCTIONS.md`. After the GitHub Pages upload, reload twice on Android Chrome so service-worker v9 can activate. Run `node verify-merge.mjs` from the repository root for static checks. Live browser, Android, museum API, remote image and Pollinations tests remain manual acceptance items documented in `PHASE_7_FINAL_QA_SECURITY.md`.
+Follow `UPLOAD-INSTRUCTIONS.md`. After upload, open the site twice on Android Chrome so service-worker v10 can activate. From the repository root run:
+
+```bash
+node verify-merge.mjs
+node test-image-health.mjs
+node --check app.js
+node --check creator.js
+python -m json.tool manifest.webmanifest >/dev/null
+```
+
+Static checks do not replace Android Chrome acceptance testing. Live remote-image rendering, museum APIs, Pollinations OAuth/generation, offline restart, touch actions and final GitHub Pages deployment still require a real device/network check.
+
+## Important limitations
+
+- No backend, online checkout, verified stock/prices, customer accounts, cloud sync, admin analytics, shared voting or public leaderboard.
+- Product prices, size charts, SKUs and stock must come from a verified product feed before commerce or exact size recommendations can be enabled.
+- The 18+ entry screen is self-attestation only; it does not verify age or identity.
+- Pollinations generation requires the user's own authorised key and approved budget; generation is not guaranteed free.
+- The Art- archive is derived from the supplied repository's user library. It is not automatically public-domain licensed; confirm individual image rights before commercial use.

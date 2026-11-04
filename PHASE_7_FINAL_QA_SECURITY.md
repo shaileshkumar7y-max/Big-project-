@@ -43,3 +43,12 @@ A headless Chromium smoke run did not complete in this environment, so no browse
 
 ## Verdict
 Phases 4–7 are implemented in the cumulative incremental patch. Static checks pass as listed; one repository-root-only selector check is deferred until upload because unchanged base files are not copied into the ZIP. Live browser, physical Android and deployment acceptance remain pending. No claim of live deployment or full end-to-end acceptance is made.
+
+
+## Phase 1–2 Stability Release addendum — 4 November 2026
+
+- Cumulative merged HTML contains 173 unique IDs; all 118 IDs from the inspected current base HTML remain present.
+- The previous main branch was missing Phase 4–6 module files and had service-worker cache v8; this update adds those modules and moves the cache to v10.
+- Added image-health fallback/reconnect logic and a dependency-free behavioural smoke test (`test-image-health.mjs`).
+- Added 10px minimum text-size guard for updated feature styles.
+- Current static release checks are recorded in `PHASE_1_2_COMPLETION.md`; real Android Chrome, live remote-image rendering, live APIs, OAuth and offline acceptance remain pending.

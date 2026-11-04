@@ -1,0 +1,9 @@
+/* Failed remote artwork stays inside its card and displays a legible editorial fallback. */
+img.bp-image-fallback {
+  display: block;
+  object-fit: contain !important;
+  object-position: center !important;
+  padding: 8px;
+  background: #171015;
+  border: 1px solid rgba(220, 157, 171, .18);
+}

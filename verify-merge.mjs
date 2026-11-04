@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* Static release verifier for the cumulative Phases 1–7 patch. Run from the repo root. */
+/* Static release verifier for the cumulative Phase 1–2 stability release. Run from repo root. */
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -31,7 +31,7 @@ try {
   }))];
   missingAssets.length ? fail(`Missing local HTML-linked assets: ${missingAssets.join(', ')}`) : pass('All local HTML-linked CSS/JS/manifest/icon references exist');
 
-  const scripts = ['halloween.js','innerwear.js','archive-merge.js','studio-enhancements.js','asset-path-fix.js','library-art.js','sw.js'];
+  const scripts = ['halloween.js','innerwear.js','archive-merge.js','studio-enhancements.js','asset-path-fix.js','image-health.js','library-art.js','sw.js','test-image-health.mjs'];
   for (const file of scripts) {
     if (!fs.existsSync(path.join(root, file))) { fail(`${file} is missing`); continue; }
     const result = await import('node:child_process').then(({ execFileSync }) => {
@@ -41,6 +41,9 @@ try {
     result === true ? pass(`${file} syntax`) : fail(`${file} syntax: ${result}`);
   }
 
+  const contract = JSON.parse(read('base-selector-contract.json'));
+  const missingContractIds = contract.ids.filter(id => !idSet.has(id));
+  missingContractIds.length ? fail(`Base app.js/creator.js selector contract missing: ${missingContractIds.join(', ')}`) : pass(`Base app.js/creator.js selector contract preserved (${contract.ids.length} checked)`);
   if (fs.existsSync(path.join(root,'app.js')) && fs.existsSync(path.join(root,'creator.js'))) {
     const baseApp = read('app.js');
     const baseCreator = read('creator.js');
@@ -51,9 +54,7 @@ try {
       ...[...baseCreator.matchAll(/getElementById\(["']([^"']+)["']\)/g)].map(match => match[1])
     ]);
     const missingBaseSelectors = [...selectorIds].filter(id => !idSet.has(id));
-    missingBaseSelectors.length ? fail(`Base application/Creator selectors missing from index: ${missingBaseSelectors.join(', ')}`) : pass(`Existing base app/Creator selectors preserved (${selectorIds.size} checked)`);
-  } else {
-    checks.push({ status: 'SKIP', message: 'Base app.js/creator.js selector preservation is checked after this patch is uploaded to the existing repository root' });
+    missingBaseSelectors.length ? fail(`Base application/Creator selectors missing from index: ${missingBaseSelectors.join(', ')}`) : pass(`Live base app/Creator selectors preserved (${selectorIds.size} checked)`);
   }
 
   const productJs = read('innerwear.js');
@@ -66,11 +67,32 @@ try {
   runwayOptions === 3 ? pass('Innerwear local runway vote has 3 campaign choices') : fail(`Expected 3 runway vote choices, found ${runwayOptions}`);
   productJs.includes('bp-innerwear-runway-vote-v1') ? pass('Runway vote is device-local and namespaced') : fail('Runway vote storage key missing');
 
+  const cssFiles = ['halloween.css','innerwear.css','archive-merge.css','studio-enhancements.css','image-health.css','stability-polish.css'];
+  const tinyRules = [];
+  for (const file of cssFiles) {
+    if (!fs.existsSync(path.join(root,file))) { fail(`${file} is missing`); continue; }
+    const css = read(file);
+    for (const match of css.matchAll(/font-size\s*:\s*(\d+(?:\.\d+)?)px/gi)) {
+      if (Number(match[1]) < 10) tinyRules.push(`${file}:${match[0]}`);
+    }
+  }
+  tinyRules.length ? fail(`Text below 10px remains in new styles: ${tinyRules.join('; ')}`) : pass('New release styles keep small text at 10px or larger');
+
+  if (fs.existsSync(path.join(root,'test-image-health.mjs'))) {
+    try {
+      const { execFileSync } = await import('node:child_process');
+      execFileSync(process.execPath, ['test-image-health.mjs'], { cwd: root, stdio: 'pipe' });
+      pass('Image fallback and reconnect retry behavioural smoke test');
+    } catch (error) {
+      fail(`Image fallback behavioural test: ${error.stderr?.toString() || error.stdout?.toString() || String(error)}`);
+    }
+  } else fail('test-image-health.mjs is missing');
+
   const manifest = JSON.parse(read('manifest.webmanifest'));
   manifest.name?.includes('BLACKED PUSSY') ? pass('PWA manifest brand name') : fail('PWA manifest brand name is missing');
   const sw = read('sw.js');
-  sw.includes('naked-canvas-shell-v9') ? pass('Service worker cache version v9') : fail('Service worker is not cache v9');
-  for (const file of ['innerwear.css','innerwear.js','archive-merge.css','archive-merge.js','studio-enhancements.css','studio-enhancements.js']) {
+  sw.includes('naked-canvas-shell-v10') ? pass('Service worker cache version v10') : fail('Service worker is not cache v10');
+  for (const file of ['innerwear.css','innerwear.js','archive-merge.css','archive-merge.js','studio-enhancements.css','studio-enhancements.js','image-health.css','image-health.js','stability-polish.css']) {
     sw.includes(`./${file}`) ? pass(`Service worker precache includes ${file}`) : fail(`Service worker precache missing ${file}`);
   }
 } catch (error) {

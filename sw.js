@@ -1,10 +1,10 @@
 /* BLACKED PUSSY Phases 1–7 — same-origin app shell cache. */
 'use strict';
-const CACHE_NAME = 'naked-canvas-shell-v9';
+const CACHE_NAME = 'naked-canvas-shell-v10';
 const CORE_SHELL = [
   './', './index.html', './styles.css', './halloween.css', './halloween.js',
   './innerwear.css', './innerwear.js', './archive-merge.css', './archive-merge.js',
-  './studio-enhancements.css', './studio-enhancements.js',
+  './studio-enhancements.css', './studio-enhancements.js', './image-health.css', './image-health.js', './stability-polish.css',
   './app.js', './creator.js', './artflip-figure-index.js', './asset-path-fix.js',
   './collections.js', './brand-voice.js', './library-art.js', './pwa.js',
   './manifest.webmanifest', './app-192.png', './app-512.png'

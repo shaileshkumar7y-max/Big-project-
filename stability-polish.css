@@ -1,0 +1,20 @@
+/* Phase 2: keep small editorial labels legible on phone screens. */
+.brand-words small,
+.hw-kicker,
+.hw-overline,
+.hw-section-heading>div>p,
+.hw-panel-heading>p,
+.hw-poster-panel>p,
+.hw-countdown-label,
+.hw-countdown-grid small,
+.hw-image-stamp small,
+.hw-image-caption,
+.hw-section-heading>span,
+.hw-card-image>span,
+.hw-wheel-labels span,
+.hw-result-kicker,
+.hw-wheel-note,
+.hw-rights-note {
+  font-size: 10px !important;
+  line-height: 1.45;
+}
