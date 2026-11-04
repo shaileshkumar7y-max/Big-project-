@@ -2,151 +2,532 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' https: data: blob:; connect-src 'self' https://gen.pollinations.ai https://*.pollinations.ai https://enter.pollinations.ai https://collectionapi.metmuseum.org https://api.artic.edu https://openaccess-api.clevelandart.org https://raw.githubusercontent.com https://images.metmuseum.org https://fonts.googleapis.com https://fonts.gstatic.com; worker-src 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#100b10">
-  <meta name="description" content="Halloween After Dark — a grown-up, playful Halloween world for fashion, art and consent-first party games.">
-  <title>After Dark — Halloween Edition</title>
-  <link rel="stylesheet" href="./styles.css">
+  <meta name="theme-color" content="#100a0e">
+  <meta name="color-scheme" content="dark light">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" sizes="192x192" href="app-192.png">
+  <link rel="apple-touch-icon" href="app-192.png">
+  <meta name="description" content="BLACKED PUSSY INNERWEAR — a premium innerwear brand experience with a curated art archive, creative studio and seasonal Halloween edit.">
+  <title>BLACKED PUSSY INNERWEAR — Halloween Mega Merge</title>
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="preconnect" href="https://images.metmuseum.org" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="halloween.css">
+  <link rel="stylesheet" href="innerwear.css">
+  <link rel="stylesheet" href="archive-merge.css">
+  <link rel="stylesheet" href="studio-enhancements.css">
 </head>
 <body>
-  <a class="skip-link" href="#mainContent">Skip to content</a>
-  <div class="ambient ambient-a" aria-hidden="true"></div>
-  <div class="ambient ambient-b" aria-hidden="true"></div>
+  <a class="skip-link" href="#top">Skip to content</a>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
 
-  <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="ageTitle">
+  <div class="age-gate" id="ageGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
     <div class="gate-card">
-      <div class="gate-mark">AD<span>✦</span></div>
-      <p class="eyebrow">HALLOWEEN / AFTER HOURS</p>
-      <h1 id="ageTitle">The night is yours.<br><em>Own your limits.</em></h1>
-      <p>This experience is designed for adults aged 18+. It includes flirtatious fashion and playful party prompts. All activities are optional, non-explicit and consent-first.</p>
-      <button class="button button-primary button-wide" data-action="confirm-age">I am 18 or older — enter</button>
-      <button class="text-button" data-action="leave-age">I am under 18</button>
-      <small>Age reminder only. This is not identity or age verification.</small>
+      <div class="brand-mark">BP<span>•</span></div>
+      <p class="eyebrow">BLACKED PUSSY · INNERWEAR</p>
+      <h1 id="gateTitle">Welcome to<br><em>After Dark.</em></h1>
+      <p class="gate-copy">This adult-oriented brand experience includes innerwear editorial imagery and mature classical fine-art references. Please confirm that you are 18 or older. This is a self-attestation, not identity or age verification.</p>
+      <button class="button button-primary button-wide" id="confirmAge">I’m 18 or older — enter</button>
+      <p class="gate-foot">Confidence, comfort and art. Always respectful. Always legal.</p>
     </div>
   </div>
 
-  <header class="topbar">
-    <a class="brand" href="#home" aria-label="After Dark home" data-action="go-home">
-      <span class="brand-mark">AD<span>✦</span></span>
-      <span class="brand-name">AFTER DARK<small>HALLOWEEN EDITION</small></span>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Blacked Pussy Innerwear home">
+      <span class="brand-monogram">BP<span>•</span></span>
+      <span class="brand-words"><strong>BLACKED PUSSY</strong><small>INNERWEAR · ART AFTER DARK</small></span>
     </a>
-    <div class="top-actions">
-      <span class="xp-pill">✦ <b id="xpValue">000</b> XP</span>
-      <button class="icon-button" type="button" aria-label="Open profile" data-action="go-profile">♙</button>
-    </div>
+    <nav class="top-nav" aria-label="Main navigation">
+      <button class="nav-link active" data-target="halloween-section">Halloween</button>
+      <button class="nav-link" data-target="innerwear-section">Innerwear</button>
+      <button class="nav-link" data-target="archive-section">Art Archive</button>
+      <button class="nav-link" data-target="art-section"><span data-voice data-en="Artworks" data-hi="Art gallery">Artworks</span></button>
+      <button class="nav-link" data-target="collection-section"><span data-voice data-en="Collections" data-hi="Art library">Collections</span></button>
+      <button class="nav-link" data-target="pose-section"><span data-voice data-en="Pose atlas" data-hi="Pose room">Pose atlas</span></button>
+      <button class="nav-link" data-target="creator-section"><span data-voice data-en="AI Creator" data-hi="Art Creator">AI Creator</span></button>
+      <button class="nav-link" data-target="saved-section"><span data-voice data-en="Saved" data-hi="My shelf">Saved</span> <span class="saved-count" id="savedCount">0</span></button>
+    </nav>
+    <button class="voice-toggle" id="voiceToggle" type="button" aria-label="Switch to Hinglish" title="Switch language">EN</button>
+    <button class="icon-button" id="themeToggle" aria-label="Toggle colour theme" title="Toggle theme">
+      <span aria-hidden="true">◐</span>
+    </button>
   </header>
 
-  <main id="mainContent" class="app-shell">
-    <section class="view is-active" id="view-home" data-view-panel="home">
-      <section class="hero-card">
-        <img class="hero-image" src="../blacked-luxury-campaign.webp" alt="Black luxury Halloween-inspired fashion campaign" fetchpriority="high">
-        <div class="hero-shade"></div>
-        <div class="hero-content">
-          <p class="eyebrow"><span class="live-dot"></span> ONE NIGHT. MANY MOODS.</p>
-          <h1>Beautifully<br><em>wicked.</em></h1>
-          <p class="hero-copy">A darker kind of after-hours: gothic fashion, art discovery and playful chemistry games. Your vibe. Your rules.</p>
-          <div class="hero-actions">
-            <button class="button button-primary" data-action="go-play">Enter the games <span>↗</span></button>
-            <button class="button button-glass" data-action="go-shop">Explore the edit</button>
+  <main id="top" tabindex="-1">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="eyebrow-line"></span><span data-voice data-en="BLACKED PUSSY · INNERWEAR" data-hi="BLACKED PUSSY · INNERWEAR">BLACKED PUSSY · INNERWEAR</span></p>
+        <h1>Own the night.<br><em>Wear your confidence.</em></h1>
+        <p class="hero-lede" data-voice data-en="An independent innerwear brand experience with a curated art archive, seasonal campaigns and a creative studio — designed for confident, considered expression." data-hi="Innerwear, curated art aur seasonal campaigns ka ek premium experience — confidence, comfort aur creativity ke saath.">An independent innerwear brand experience with a curated art archive, seasonal campaigns and a creative studio — designed for confident, considered expression.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" data-scroll="halloween-section"><span data-voice data-en="Explore Halloween 2027" data-hi="Halloween 2027 dekho">Explore Halloween 2027</span> <span aria-hidden="true">↗</span></button>
+          <button class="button button-quiet" data-scroll="art-section" data-voice data-en="Explore art archive" data-hi="Art archive dekho">Explore art archive</button>
+          <button class="button button-quiet" data-scroll="creator-section" data-voice data-en="Open creative studio ✦" data-hi="Creative studio kholo ✦">Open creative studio ✦</button>
+        </div>
+        <div class="hero-meta"><span data-voice data-en="HALLOWEEN 2027" data-hi="HALLOWEEN 2027">HALLOWEEN 2027</span><i></i><span data-voice data-en="INNERWEAR & ART" data-hi="INNERWEAR AUR ART">INNERWEAR & ART</span><i></i><span data-voice data-en="18+ EXPERIENCE" data-hi="18+ EXPERIENCE">18+ EXPERIENCE</span></div>
+        <p class="hero-signoff" data-voice data-en="Bold in style. Thoughtful in design. Respect, always." data-hi="Style mein bold. Design mein thoughtful. Respect hamesha.">Bold in style. Thoughtful in design. Respect, always.</p>
+      </div>
+      <div class="hero-art" aria-label="Blacked Pussy editorial brand cover">
+        <div class="hero-frame">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="hero-stamp">AFTER<br>DARK</div>
+          <div class="hero-glow"></div>
+          <div class="hero-caption"><span>HALLOWEEN 2027</span><span>BLACK EDITION</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phase 3: seasonal Halloween experience. Existing gallery and creator sections remain below. -->
+    <section class="hw-section" id="halloween-section" aria-labelledby="hw-title">
+      <div class="hw-wrap">
+        <div class="hw-kicker"><span></span> THE SEASONAL CAMPAIGN · 2027</div>
+        <div class="hw-feature">
+          <div class="hw-feature-copy">
+            <p class="hw-overline">A LITTLE MYSTERY. A LOT OF STYLE.</p>
+            <h2 id="hw-title">The Halloween<br><em>After Dark Edit.</em></h2>
+            <p class="hw-lede">A curated seasonal world of midnight tones, editorial innerwear campaigns and art-led inspiration. Dark, elegant and never overdone.</p>
+            <div class="hw-actions">
+              <a class="hw-primary" href="#halloween-collections">Explore the edit <span aria-hidden="true">↘</span></a>
+              <a class="hw-secondary" href="#art-section">Visit the art archive</a>
+            </div>
+            <div class="hw-countdown" data-hw-countdown aria-label="Countdown to Halloween 2027">
+              <span class="hw-countdown-label">COUNTDOWN TO 31 OCTOBER 2027</span>
+              <div class="hw-countdown-grid">
+                <div><strong data-hw-days>—</strong><small>DAYS</small></div>
+                <div><strong data-hw-hours>—</strong><small>HOURS</small></div>
+                <div><strong data-hw-minutes>—</strong><small>MIN</small></div>
+                <div><strong data-hw-seconds>—</strong><small>SEC</small></div>
+              </div>
+              <p data-hw-countdown-status aria-live="polite">The seasonal edit is being prepared.</p>
+            </div>
           </div>
-          <div class="hero-meta"><span>18+ SELF-ATTESTED</span><i></i><span>NON-EXPLICIT</span><i></i><span>PASS ANY TIME</span></div>
+          <div class="hw-feature-visual">
+            <img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/blacked-luxury-campaign.webp" alt="Blacked Pussy luxury black editorial campaign visual" fetchpriority="high" decoding="async">
+            <div class="hw-visual-shade"></div>
+            <div class="hw-image-stamp"><span>BP</span><small>VOL. 01 · 2027</small></div>
+            <p class="hw-image-caption">DARKNESS, WITH A POINT OF VIEW.</p>
+          </div>
         </div>
-        <div class="hero-stamp">AFTER<br><b>DARK</b><span>VOL. 01</span></div>
-      </section>
 
-      <section class="welcome-row">
-        <div><p class="eyebrow">TONIGHT'S INVITATION</p><h2 id="welcomeTitle">Welcome to your wicked side.</h2><p class="muted">Pick one mood and make the night yours.</p></div>
-        <button class="text-button" data-action="go-profile">Set your name ↗</button>
-      </section>
-
-      <section class="mood-grid" aria-label="Choose a mood">
-        <button class="mood-card mood-vampire" data-action="mood" data-mood="Vampire Velvet"><span>01 / VELVET</span><b>Vampire<br>Velvet</b><small>Dark romance · mystery</small></button>
-        <button class="mood-card mood-witch" data-action="mood" data-mood="Witching Hour"><span>02 / SPELLBOUND</span><b>Witching<br>Hour</b><small>Playful · unpredictable</small></button>
-        <button class="mood-card mood-phantom" data-action="mood" data-mood="Phantom Gold"><span>03 / AFTERGLOW</span><b>Phantom<br>Gold</b><small>Glamour · confidence</small></button>
-      </section>
-
-      <section class="section-block">
-        <div class="section-heading"><div><p class="eyebrow">THE MAIN EVENT</p><h2>Tonight's <em>little obsessions.</em></h2></div><button class="text-button" data-action="go-play">See all ↗</button></div>
-        <div class="feature-grid">
-          <article class="feature-card feature-tall">
-            <img src="../her-after-dark.webp" alt="HER AFTER DARK campaign styling" loading="lazy">
-            <div class="feature-overlay"><span>01 / FLIRT & PLAY</span><h3>Midnight<br>Chemistry</h3><p>A playful two-person vibe match.</p><button class="button button-light" data-action="open-feature" data-feature="chemistry">Try the match ↗</button></div>
+        <div class="hw-section-heading" id="halloween-collections">
+          <div><p>01 / SEASONAL COLLECTIONS</p><h3>Choose your <em>after-dark mood.</em></h3></div>
+          <span>THREE EDITORIAL DIRECTIONS</span>
+        </div>
+        <div class="hw-collection-grid">
+          <article class="hw-collection-card">
+            <div class="hw-card-image"><img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/black-lace-collection.webp" alt="Black lace collection campaign image" loading="lazy" decoding="async"><span>01 · THE CLASSIC</span></div>
+            <div class="hw-card-copy"><h4>Midnight Lace</h4><p>Black-on-black styling, fine textures and a timeless editorial mood.</p><button type="button" data-hw-scroll="collection-section">Explore the archive ↗</button></div>
           </article>
-          <article class="feature-card">
-            <img src="../mughal-royal-romance-poster.webp" alt="Royal romantic campaign artwork" loading="lazy">
-            <div class="feature-overlay"><span>02 / MYSTERY</span><h3>Masquerade Reveal</h3><button class="circle-action" aria-label="Reveal a masquerade look" data-action="open-feature" data-feature="masquerade">↗</button></div>
+          <article class="hw-collection-card">
+            <div class="hw-card-image"><img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/blxcked-luxury-night.webp" alt="Blxcked luxury night campaign image" loading="lazy" decoding="async"><span>02 · THE STATEMENT</span></div>
+            <div class="hw-card-copy"><h4>Velvet Shadow</h4><p>Deep wine tones, low-key light and a confident, premium visual language.</p><button type="button" data-hw-scroll="art-section">Explore campaign art ↗</button></div>
           </article>
-          <article class="feature-card">
-            <img src="../black-elegance-fashion.webp" alt="Black elegance editorial styling" loading="lazy">
-            <div class="feature-overlay"><span>03 / STYLE ORACLE</span><h3>Night Outfit Oracle</h3><button class="circle-action" aria-label="Get a night outfit idea" data-action="open-feature" data-feature="outfit">↗</button></div>
+          <article class="hw-collection-card">
+            <div class="hw-card-image"><img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/blxcked-runway.webp" alt="Blxcked runway editorial campaign image" loading="lazy" decoding="async"><span>03 · THE RUNWAY</span></div>
+            <div class="hw-card-copy"><h4>Ember Rose</h4><p>Warm highlights, graceful silhouettes and a softer after-dark statement.</p><button type="button" data-hw-scroll="creator-section">Create an art direction ✦</button></div>
           </article>
         </div>
-      </section>
 
-      <section class="principle-strip">
-        <span class="principle-icon">♡</span>
-        <div><b>Confidence is the dress code.</b><p>Every game is optional. Ask first, respect every no, and keep the fun comfortable for everyone.</p></div>
-      </section>
-    </section>
-
-    <section class="view" id="view-shop" data-view-panel="shop" hidden>
-      <div class="page-intro"><p class="eyebrow">THE HALLOWEEN LOOKBOOK</p><h1>Dress for your<br><em>dark side.</em></h1><p class="muted">An editorial preview of the existing fashion and innerwear collections. Product details and shopping flows are scheduled for Phase 4.</p></div>
-      <div class="lookbook-grid">
-        <article class="lookbook-card lookbook-wide"><img src="../blxcked-runway.webp" alt="BLXCKED runway fashion campaign"><div><span>THE HOUSE SIGNATURE</span><h2>Blackout <em>Runway</em></h2><p>Sharp silhouettes. Midnight confidence.</p><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
-        <article class="lookbook-card"><img src="../pink-lace-collection.webp" alt="Pink lace fashion collection"><div><span>SOFT GOTHIC</span><h2>Rose <em>After Dark</em></h2><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
-        <article class="lookbook-card"><img src="../royal-palace-saree.webp" alt="Royal fashion editorial"><div><span>GOTHIC ROYALTY</span><h2>Velvet <em>Royale</em></h2><span class="coming-label">COLLECTION INTEGRATION / PHASE 4</span></div></article>
+        <div class="hw-interactive-grid">
+          <section class="hw-wheel-panel" aria-labelledby="hw-wheel-title">
+            <div class="hw-panel-heading"><p>02 / THE MYSTERY PICKER</p><h3 id="hw-wheel-title">Spin your <em>night mood.</em></h3><span>One tap. One creative direction.</span></div>
+            <div class="hw-wheel-layout">
+              <div class="hw-wheel-wrap">
+                <span class="hw-wheel-pointer" aria-hidden="true"></span>
+                <div class="hw-wheel" data-hw-wheel aria-hidden="true"><div class="hw-wheel-labels"><span>NOIR</span><span>MOON</span><span>ROSE</span><span>ART</span><span>EMBER</span><span>SKETCH</span></div><div class="hw-wheel-core">BP</div></div>
+              </div>
+              <div class="hw-wheel-result">
+                <span class="hw-result-kicker">YOUR RANDOM EDIT</span>
+                <h4 data-hw-result-title>Ready when you are.</h4>
+                <p data-hw-result-copy>Spin to reveal a mood and get a matching section to explore.</p>
+                <button class="hw-spin-button" type="button" data-hw-spin>Spin the mood wheel <span aria-hidden="true">✦</span></button>
+                <button class="hw-result-link" type="button" data-hw-result-go hidden>Explore this mood ↗</button>
+                <p class="hw-wheel-note" role="status" aria-live="polite" data-hw-status>No score, account or personal data is required.</p>
+              </div>
+            </div>
+          </section>
+          <aside class="hw-poster-panel">
+            <p>03 / THE CAMPAIGN WALL</p>
+            <h3>Stories after <em>sunset.</em></h3>
+            <div class="hw-poster-stack">
+              <img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/after-dark-detail.webp" alt="After Dark campaign detail artwork" loading="lazy" decoding="async">
+              <img src="https://raw.githubusercontent.com/shaileshkumar7y-max/New-product-/main/her-after-dark.webp" alt="Her After Dark campaign artwork" loading="lazy" decoding="async">
+            </div>
+            <button type="button" class="hw-poster-link" data-hw-scroll="art-section">Browse the full art archive ↗</button>
+          </aside>
+        </div>
+        <p class="hw-rights-note">Seasonal campaign cards reference existing image files in the New-product- repository. They are loaded from that public repository and are not duplicated in this update pack. Product checkout is not part of Phases 1–3. The 18+ entry screen remains a self-attestation only.</p>
       </div>
-      <section class="wellness-preview"><div><p class="eyebrow">COMFORT FIRST</p><h2>Feel good in<br><em>your own skin.</em></h2><p class="muted">Fit, fabric, comfort and body-positive wellness guidance will live here—not hidden behind a sales pitch.</p></div><img src="../fit-guide-detail.webp" alt="Fit guide editorial detail" loading="lazy"></section>
     </section>
 
-    <section class="view" id="view-play" data-view-panel="play" hidden>
-      <div class="page-intro"><p class="eyebrow">18+ / CONSENT-FIRST PARTY PLAY</p><h1>Let the night<br><em>get interesting.</em></h1><p class="muted">Grown-up, playful and non-explicit. Every round has a pass button. No forced contact, photos or private disclosures.</p></div>
-      <div class="play-grid">
-        <button class="play-card play-card-featured" data-action="open-feature" data-feature="wheel"><span class="play-icon">◉</span><span class="play-kicker">SPIN / FLIRT / PASS</span><b>Haunting Dare Wheel</b><small>Flirty, bold and spooky prompts—your choice.</small><span class="play-arrow">↗</span></button>
-        <button class="play-card" data-action="open-feature" data-feature="chemistry"><span class="play-icon">♡</span><span class="play-kicker">TWO PLAYERS</span><b>Midnight Chemistry</b><small>A light-hearted compatibility game.</small><span class="play-arrow">↗</span></button>
-        <button class="play-card" data-action="open-feature" data-feature="vampire"><span class="play-icon">✦</span><span class="play-kicker">PERSONALITY QUIZ</span><b>Vampire Match</b><small>Discover your Halloween archetype.</small><span class="play-arrow">↗</span></button>
-        <button class="play-card" data-action="open-feature" data-feature="masquerade"><span class="play-icon">◈</span><span class="play-kicker">MYSTERY REVEAL</span><b>Masquerade Reveal</b><small>Unlock a secret look and a playful icebreaker.</small><span class="play-arrow">↗</span></button>
-        <button class="play-card" data-action="open-feature" data-feature="date"><span class="play-icon">☾</span><span class="play-kicker">DATE NIGHT GENERATOR</span><b>Haunted Date Oracle</b><small>Unexpected date ideas for two adults.</small><span class="play-arrow">↗</span></button>
-        <button class="play-card" data-action="open-feature" data-feature="outfit"><span class="play-icon">♢</span><span class="play-kicker">STYLE GENERATOR</span><b>Night Outfit Oracle</b><small>Gothic-glam outfit inspiration.</small><span class="play-arrow">↗</span></button>
+
+    <!-- Phase 4: Innerwear campaign and fit guide. Existing campaign masters are linked, not duplicated. -->
+    <section class="bp-section" id="innerwear-section" aria-labelledby="bp-innerwear-title">
+      <div class="bp-section-head">
+        <div><p class="bp-eyebrow">PHASE 4 / INNERWEAR & CAMPAIGN LIBRARY</p><h2 id="bp-innerwear-title">The innerwear <em>edit.</em></h2></div>
+        <p class="bp-section-intro">Explore the existing campaign and editorial library from New-product-. These are visual references, not a live stock catalogue or confirmed product listings.</p>
       </div>
-      <div class="safe-note"><b>THE HOUSE RULE</b><p>Ask, don't assume. No means no. Passing is always a full answer. Keep all play within everyone's comfort zone.</p></div>
-    </section>
-
-    <section class="view" id="view-art" data-view-panel="art" hidden>
-      <div class="page-intro"><p class="eyebrow">THE VISUAL ARCHIVE</p><h1>Art after<br><em>dark.</em></h1><p class="muted">A dedicated home for curated artwork, pose references, collections and the creator studio. The complete Art-v2 integration is Phase 3.</p></div>
-      <div class="art-feature"><img src="../user-art-preview-01.webp" alt="Curated figure-art preview" loading="lazy"><div><p class="eyebrow">NAKED CANVAS / ART STUDIO</p><h2>Beauty in every<br><em>brushstroke.</em></h2><p class="muted">Classical art, gesture, portraits and editorial studies in one calm, searchable archive.</p><a class="button button-primary" href="https://shaileshkumar7y-max.github.io/Art-v2-/" target="_blank" rel="noopener noreferrer">Open current Art Studio ↗</a></div></div>
-      <div class="art-mini-grid"><div><span>01</span><b>Curated collections</b><small>Classical, graphite and editorial.</small></div><div><span>02</span><b>Pose atlas</b><small>Reference views and movement.</small></div><div><span>03</span><b>Creator studio</b><small>Prompt builder and optional image tools.</small></div></div>
-    </section>
-
-    <section class="view" id="view-more" data-view-panel="more" hidden>
-      <div class="page-intro"><p class="eyebrow">YOUR PRIVATE CORNER</p><h1>Make it<br><em>personal.</em></h1><p class="muted">Set your display name and choose the accent mood. This phase keeps data on this device only.</p></div>
-      <section class="profile-card">
-        <div class="profile-avatar">AD</div><div class="profile-main"><p class="eyebrow">LOCAL PROFILE</p><h2 id="profileName">Night Guest</h2><p class="muted">Your progress is stored on this browser.</p></div><span class="local-pill">DEVICE ONLY</span>
-        <form id="profileForm" class="profile-form"><label for="displayName">Display name</label><input id="displayName" name="displayName" maxlength="24" autocomplete="nickname" placeholder="Choose a name"><button class="button button-primary" type="submit">Save profile</button></form>
+      <div class="bp-controls">
+        <label class="bp-search"><span aria-hidden="true">⌕</span><input id="bpLookSearch" type="search" placeholder="Search campaigns, looks or moods…" autocomplete="off"></label>
+        <div class="bp-chip-row" id="bpLookFilters" aria-label="Filter innerwear campaign references">
+          <button class="bp-chip" type="button" data-bp-filter="all" aria-pressed="true">All looks</button>
+          <button class="bp-chip" type="button" data-bp-filter="black" aria-pressed="false">Black edition</button>
+          <button class="bp-chip" type="button" data-bp-filter="lace" aria-pressed="false">Lace</button>
+          <button class="bp-chip" type="button" data-bp-filter="afterdark" aria-pressed="false">After dark</button>
+          <button class="bp-chip" type="button" data-bp-filter="couples" aria-pressed="false">Together</button>
+          <button class="bp-chip" type="button" data-bp-filter="comfort" aria-pressed="false">Comfort</button>
+          <button class="bp-chip" type="button" data-bp-filter="editorial" aria-pressed="false">Editorial</button>
+        </div>
+      </div>
+      <div class="bp-look-grid" id="bpLookGrid" aria-live="polite"></div>
+      <p class="bp-result-note" id="bpLookCount">Campaign references will load here.</p>
+      <p class="bp-result-note" id="bpLookEmpty" hidden>No campaign references match that search.</p>
+      <p class="bp-result-note" id="bpLookStatus" role="status" aria-live="polite">Saved looks stay in this browser only.</p>
+      <div class="bp-archive-personal-panel" style="margin-top:16px">
+        <h3>My saved looks</h3><div class="bp-archive-mini-row" id="bpSavedLooks"><p class="bp-result-note">Your saved campaign looks stay on this device.</p></div>
+      </div>
+      <section class="bp-runway-panel" aria-labelledby="bp-runway-title">
+        <div><p class="bp-eyebrow">CAMPAIGN RUNWAY · LOCAL PREVIEW</p><h3 id="bp-runway-title">Which look takes the spotlight?</h3><p>Choose a favourite campaign direction. This is a local demo vote stored on this device, not a public or live community poll.</p></div>
+        <div class="bp-runway-options">
+          <button type="button" data-runway-vote="blxcked-night" aria-pressed="false"><span>BLXCKED Luxury Night</span><strong data-runway-count="blxcked-night">0 local votes</strong></button>
+          <button type="button" data-runway-vote="black-lace" aria-pressed="false"><span>Black Lace Collection</span><strong data-runway-count="black-lace">0 local votes</strong></button>
+          <button type="button" data-runway-vote="pink-lace" aria-pressed="false"><span>Pink Lace Collection</span><strong data-runway-count="pink-lace">0 local votes</strong></button>
+        </div>
+        <p class="bp-runway-status" id="bpRunwayStatus" role="status" aria-live="polite">Your local vote has not been placed yet.</p>
       </section>
-      <section class="settings-card"><div><p class="eyebrow">VISUAL MOOD</p><h2>Choose your accent</h2><p class="muted">Change the highlight colour without changing the layout.</p></div><div class="accent-options"><button class="accent-option is-selected" data-action="accent" data-accent="blood" aria-label="Blood moon accent"><i class="swatch swatch-blood"></i><span>Blood Moon</span></button><button class="accent-option" data-action="accent" data-accent="haunted" aria-label="Haunted gold accent"><i class="swatch swatch-gold"></i><span>Haunted Gold</span></button></div></section>
-      <section class="privacy-card"><span>♧</span><div><b>Privacy by default</b><p>XP, name and preferences stay in local browser storage. No public profile, remote leaderboard, online multiplayer or analytics is connected in Phase 2.</p></div></section>
-      <button class="button button-quiet button-wide reset-button" data-action="reset-progress">Reset local XP & preferences</button>
-      <p class="version-note">AFTER DARK / HALLOWEEN FOUNDATION · PHASE 2</p>
+      <div class="bp-fit-panel" id="bp-fit-guide">
+        <div>
+          <p class="bp-eyebrow">FIT, COMFORT & CARE</p>
+          <h3>A better fit starts with <em>good measurements.</em></h3>
+          <p>Use the size guide supplied with the specific garment. The current source repositories contain campaign and editorial images, but do not provide a verified, universal size chart for every style.</p>
+          <ol class="bp-fit-steps">
+            <li><strong>01 · Band / underbust</strong><span>Measure around the ribcage where the band sits. Keep the tape level and comfortably snug.</span></li>
+            <li><strong>02 · Bust</strong><span>Measure around the fullest part without compressing the body. Follow the garment maker's instructions.</span></li>
+            <li><strong>03 · Waist & hip</strong><span>For briefs or shaping styles, take the garment's requested waist and hip measurements.</span></li>
+            <li><strong>04 · Check the fit</strong><span>Look for secure support without pinching, digging, slipping or restricted movement.</span></li>
+          </ol>
+        </div>
+        <aside class="bp-fit-side">
+          <h4>Before choosing a size</h4>
+          <ul>
+            <li>Read the specific product's measurement chart and fabric notes.</li>
+            <li>Check stretch, lining, cup construction and adjustability.</li>
+            <li>Choose comfort and freedom of movement over a label number.</li>
+            <li>For a fit concern, use the brand's verified support/contact channel when one is published.</li>
+          </ul>
+          <p class="bp-fit-disclaimer">No product price, stock, fabric composition or S/M/L conversion is invented here. Those details must be added from a verified product catalogue before checkout can be enabled.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="stat-strip wrap" aria-label="Gallery summary">
+      <div><strong id="artCount">04</strong><span>CURATED ARTWORKS</span></div>
+      <div><strong id="poseCount">08</strong><span>STARTER POSE SETS</span></div>
+      <div><strong>05</strong><span>CAMERA ANGLES</span></div>
+      <div><strong>18+</strong><span>ADULT ART SPACE</span></div>
+    </section>
+
+    <section class="brand-manifesto wrap" aria-label="Brand principles"><p class="eyebrow">THE HOUSE RULE</p><p class="manifesto-line">Confidence in every detail. Creativity in every frame. <em>Respect over everything.</em></p><p class="manifesto-aside" data-voice data-en="Art, comfort and self-expression belong in the same conversation." data-hi="Art, comfort aur self-expression — teeno ek saath.">Art, comfort and self-expression belong in the same conversation.</p></section>
+
+    <section class="section wrap" id="art-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">01 / THE STARTER SHELF</p><h2>Curated picks <em>worth a closer look.</em></h2></div>
+        <p class="section-aside" data-voice data-en="The original starter shelf stays intact. The larger open-access library lives in Collections below." data-hi="Original starter shelf safe hai. Badi open-access library neeche Collections mein hai.">The original starter shelf stays intact. The larger open-access library lives in Collections below.</p>
+      </div>
+      <div class="toolbar">
+        <label class="search-box"><span aria-hidden="true">⌕</span><input id="artSearch" type="search" placeholder="Search artist, title or medium…" autocomplete="off"><kbd>/</kbd></label>
+        <div class="filter-row" id="artFilters" aria-label="Filter artworks">
+          <button class="filter-chip active" data-filter="all">All works</button>
+          <button class="filter-chip" data-filter="painting">Paintings</button>
+          <button class="filter-chip" data-filter="drawing">Drawings & prints</button>
+        </div>
+      </div>
+      <div class="art-grid" id="artGrid" aria-live="polite"></div>
+      <p class="empty-state hidden" id="artEmpty">No artworks match that search. Try another artist or keyword.</p>
+      <p class="section-note" data-voice data-en="Every work keeps its museum provenance and rights notes close." data-hi="Har artwork ke saath museum source aur rights details judi rahengi.">Every work keeps its museum provenance and rights notes close.</p>
+    </section>
+
+
+    <section class="section wrap collection-section" id="collection-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">02 / YOUR STUDIO + OPEN-ACCESS LIBRARY</p><h2>Figure art <em>without the tiny shelf.</em></h2></div>
+        <p class="section-aside" data-voice data-en="Start with your nineteen original ChatGPT Library figure-study artworks, then explore curated open-access museum references. Generated work and historical collection records stay clearly labelled." data-hi="Pehle tumhari ChatGPT Library ki 19 original figure-study artworks dekho, phir museum references explore karo. AI-generated art aur historical works alag-alag labelled hain.">Start with your nineteen original ChatGPT Library figure-study artworks, then explore curated open-access museum references. Generated work and historical collection records stay clearly labelled.</p>
+      </div>
+      <div class="studio-library-block" id="studio-library">
+        <div class="studio-library-heading">
+          <div><p class="eyebrow">CHATGPT LIBRARY / YOUR ORIGINALS</p><h3>My studio shelf <em>made for close study.</em></h3></div>
+          <p>Nineteen distinct figure-study artworks selected from your ChatGPT Library. Bundled locally, compressed for mobile, and labelled as AI-generated artwork.</p>
+        </div>
+        <div class="studio-art-grid" id="studioArtGrid" aria-label="Your ChatGPT-generated figure study artworks"></div>
+      </div>
+      <div class="collection-metrics" aria-live="polite">
+        <div><strong>11</strong><span>YOUR LIBRARY ART</span></div>
+        <div><strong id="collectionLoaded">0</strong><span>MUSEUM PICKS LOADED</span></div>
+        <div><strong>PD / CC0</strong><span>MUSEUM RIGHTS FILTER</span></div>
+      </div>
+      <div class="collection-toolbar">
+        <label class="search-box collection-search"><span aria-hidden="true">⌕</span><input id="collectionSearch" type="search" placeholder="Search nude art, artist, title or subject…" autocomplete="off"><button class="search-submit" id="runCollectionSearch" type="button">Search</button></label>
+        <div class="filter-row collection-chips" id="collectionFilters" aria-label="Search figure art collections">
+          <button class="filter-chip active" data-query="nude">All figure art</button>
+          <button class="filter-chip" data-query="female nude">Female figure</button>
+          <button class="filter-chip" data-query="male nude">Male figure</button>
+          <button class="filter-chip" data-query="reclining nude">Reclining</button>
+          <button class="filter-chip" data-query="bather">Bathers</button>
+          <button class="filter-chip" data-query="Venus nude">Mythology</button>
+          <button class="filter-chip" data-query="figure study">Study & gesture</button>
+          <button class="filter-chip" data-query="nude sculpture">Sculpture</button>
+        </div>
+        <div class="collection-options">
+          <label class="creator-field"><span>Source / library</span><select id="collectionSource"><option value="all">All open sources</option><option value="artflip">ArtFlip figure index</option><option value="met">The Met</option><option value="aic">Art Institute of Chicago</option><option value="cma">Cleveland Museum</option></select></label>
+          <label class="creator-field"><span>Sort results</span><select id="collectionSort"><option value="relevance">Museum relevance</option><option value="title">Title A–Z</option><option value="artist">Artist A–Z</option></select></label>
+        </div>
+      </div>
+      <div class="collection-status" id="collectionStatus" role="status" aria-live="polite">Ready to search the museum libraries. Results load in small batches to keep the phone responsive.</div>
+      <div class="collection-grid" id="collectionGrid" aria-live="polite"></div>
+      <p class="empty-state hidden" id="collectionEmpty">No eligible artworks found for this search. Try another subject or museum.</p>
+      <div class="collection-more-wrap"><button class="button button-primary" id="collectionLoadMore" type="button">Load more artworks ↓</button><p id="collectionMoreNote">Your nineteen generated Studio artworks are stored locally in optimized WebP. Museum source previews and full-size records remain separately attributed.</p></div>
+      <p class="rights-note collection-rights">Rights filter: ArtFlip seed records are included only when the ArtFlip metadata has <code>isPublicDomain = true</code>; The Met — <code>isPublicDomain = true</code>; Art Institute of Chicago — <code>is_public_domain = true</code>; Cleveland Museum — <code>share_license_status = CC0</code>. Image URLs come from each museum’s official open-access image service. Search results are live and can change as museum records are updated.</p>
+    </section>
+
+
+    <!-- Phase 5: 47 artwork records and nine collections from Art-. -->
+    <section class="bp-section" id="archive-section" aria-labelledby="bp-archive-title">
+      <div class="bp-section-head">
+        <div><p class="bp-eyebrow">PHASE 5 / CURATED ART ARCHIVE</p><h2 id="bp-archive-title">Forty-seven works. <em>Nine collections.</em></h2></div>
+        <p class="bp-section-intro">An expanded visual archive from the Art- repository, with search, collection filters, sorting, list view, saved works, recent views and a fullscreen-style detail viewer.</p>
+      </div>
+      <div class="bp-archive-toolbar">
+        <label class="bp-search"><span aria-hidden="true">⌕</span><input id="bpArchiveSearch" type="search" placeholder="Search title, medium or collection…" autocomplete="off"></label>
+        <div class="bp-archive-tools">
+          <select id="bpArchiveSort" aria-label="Sort artworks"><option value="featured">Featured order</option><option value="az">Title A–Z</option><option value="za">Title Z–A</option></select>
+          <button class="bp-archive-view-toggle" id="bpArchiveGridToggle" type="button" aria-label="Grid view" aria-pressed="true">▦</button>
+          <button class="bp-archive-view-toggle" id="bpArchiveListToggle" type="button" aria-label="List view" aria-pressed="false">☷</button>
+        </div>
+      </div>
+      <div class="bp-chip-row" id="bpArchiveFilters" aria-label="Filter the nine art collections" style="margin-bottom:18px">
+        <button class="bp-chip" type="button" data-archive-filter="all" aria-pressed="true">All works · 47</button>
+        <button class="bp-chip" type="button" data-archive-filter="figure" aria-pressed="false">Figure studies</button>
+        <button class="bp-chip" type="button" data-archive-filter="graphite" aria-pressed="false">Graphite</button>
+        <button class="bp-chip" type="button" data-archive-filter="anatomy" aria-pressed="false">Anatomy</button>
+        <button class="bp-chip" type="button" data-archive-filter="classical" aria-pressed="false">Classical</button>
+        <button class="bp-chip" type="button" data-archive-filter="couples" aria-pressed="false">Couple studies</button>
+        <button class="bp-chip" type="button" data-archive-filter="portrait" aria-pressed="false">Portraits</button>
+        <button class="bp-chip" type="button" data-archive-filter="sculpture" aria-pressed="false">Sculpture</button>
+        <button class="bp-chip" type="button" data-archive-filter="editorial" aria-pressed="false">Drapery & editorial</button>
+        <button class="bp-chip" type="button" data-archive-filter="movement" aria-pressed="false">Movement & pose</button>
+      </div>
+      <p class="bp-archive-count" id="bpArchiveCount" aria-live="polite">Loading the curated archive…</p>
+      <div class="bp-archive-grid" id="bpArchiveGrid" aria-live="polite"></div>
+      <p class="bp-archive-empty" id="bpArchiveEmpty" hidden>No artwork matches your search or selected collection.</p>
+      <div class="bp-archive-actions"><button type="button" id="bpArchiveLoadMore">Load more artworks ↓</button><button type="button" id="bpArchiveClearFilters">Clear filters</button></div>
+      <div class="bp-archive-personal">
+        <section class="bp-archive-personal-panel"><h3>Saved art</h3><div class="bp-archive-mini-row" id="bpArchiveFavourites"></div></section>
+        <section class="bp-archive-personal-panel"><h3>Recently viewed</h3><div class="bp-archive-mini-row" id="bpArchiveRecent"></div></section>
+      </div>
+      <p class="bp-archive-credit">Source: the user's Art- repository. These 47 image records are user-library-derived artwork assets, not museum public-domain records. They are linked from the source repository and are not duplicated in this update package. Confirm the underlying image rights and permissions before commercial redistribution or paid advertising.</p>
+      <p class="bp-result-note" id="bpArchiveStatus" role="status" aria-live="polite">Saved and recent lists are stored locally on this device.</p>
+    </section>
+
+    <section class="pose-section" id="pose-section">
+      <div class="wrap section">
+        <div class="section-heading">
+          <div><p class="eyebrow">03 / THE STUDY ROOM</p><h2>Pose atlas <em>from every angle.</em></h2></div>
+          <p class="section-aside">Faceless mannequin references for studying gesture, balance and silhouette. Choose a pose, then switch viewpoints.</p>
+        </div>
+        <div class="toolbar pose-toolbar">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="poseSearch" type="search" placeholder="Search pose or movement…" autocomplete="off"></label>
+          <div class="filter-row" id="poseFilters" aria-label="Filter pose categories">
+            <button class="filter-chip active" data-filter="all">All poses</button>
+            <button class="filter-chip" data-filter="sitting">Sitting</button><button class="filter-chip" data-filter="standing">Standing</button><button class="filter-chip" data-filter="kneeling">Kneeling</button><button class="filter-chip" data-filter="lying">Lying</button><button class="filter-chip" data-filter="dynamic">Dynamic</button>
+          </div>
+        </div>
+        <div class="pose-grid" id="poseGrid" aria-live="polite"></div>
+        <p class="empty-state hidden" id="poseEmpty">No pose sets found. Try a different search.</p>
+      </div>
+    </section>
+
+    <section class="section wrap creator-section" id="creator-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">04 / THE CREATIVE STUDIO</p><h2>AI Creator <em>make it yours.</em></h2></div>
+        <p class="section-aside">Build a fine-art prompt, choose an available image model and create a new study. Generation uses your own approved Pollinations budget.</p>
+      </div>
+
+      <div class="creator-connect-card">
+        <div class="creator-connect-copy">
+          <p class="eyebrow">PRIVATE BY DESIGN / NO APP BACKEND</p>
+          <h3 id="creatorConnectionTitle">Connect your image studio</h3>
+          <p id="creatorConnectionText">Connect with Pollinations using your own App Key. You approve the spending limit and expiry before any generation. Nothing is charged by this gallery itself.</p>
+          <div class="creator-status" id="creatorAuthStatus" role="status" aria-live="polite"><span class="status-dot"></span><span>Not connected · prompt builder is ready</span></div>
+        </div>
+        <div class="creator-connect-controls">
+          <label class="creator-field"><span>Pollinations App Key <small>(public client ID)</small></span><input id="pollinationsClientId" type="text" inputmode="text" autocomplete="off" placeholder="pk_…" maxlength="160"></label>
+          <div class="creator-redirect-row"><button class="text-button" id="copyRedirectUri" type="button">Copy this page’s redirect URL</button><a href="https://enter.pollinations.ai/keys" target="_blank" rel="noopener noreferrer">Create App Key ↗</a></div>
+          <div class="creator-budget-row">
+            <label class="creator-field"><span>Consent budget <small>(Pollen cap)</small></span><input id="creatorBudget" type="number" min="0.1" max="100" step="0.1" value="1"></label>
+            <label class="creator-field"><span>Key expiry</span><select id="creatorExpiry"><option value="1">1 day</option><option value="7" selected>7 days</option><option value="30">30 days</option></select></label>
+          </div>
+          <div class="creator-auth-actions"><button class="button button-primary" id="connectPollinations" type="button">Connect Pollinations</button><button class="button button-quiet hidden" id="disconnectPollinations" type="button">Disconnect</button></div>
+        </div>
+      </div>
+
+      <div class="creator-workspace">
+        <div class="creator-form-panel">
+          <div class="creator-panel-heading"><span>01</span><div><h3>Build your art direction</h3><p>Shape the scene before you render.</p></div></div>
+          <div class="creator-control-grid">
+            <label class="creator-field creator-span-2"><span>Art direction</span><select id="creatorPreset">
+              <option value="academic">Academic figure study</option>
+              <option value="draped">Draped classical study</option>
+              <option value="gesture">Gesture drawing session</option>
+              <option value="portrait">Fine-art portrait</option>
+              <option value="sculpture">Classical sculpture study</option>
+              <option value="duo">Adult duo composition</option>
+            </select></label>
+            <label class="creator-field"><span>Medium</span><select id="creatorMedium"><option>Charcoal on textured paper</option><option>Graphite pencil</option><option>Classical oil painting</option><option>Watercolour on paper</option><option>Contemporary digital fine art</option><option>Marble sculpture rendering</option></select></label>
+            <label class="creator-field"><span>Pose / composition</span><select id="creatorPose"><option>Standing contrapposto</option><option>Seated, relaxed posture</option><option>Reclining on a studio chaise</option><option>Kneeling, balanced gesture</option><option>Expressive full-body movement</option><option>Close-up portrait composition</option></select></label>
+            <label class="creator-field"><span>Lighting</span><select id="creatorLighting"><option>Soft north-window light</option><option>Rembrandt chiaroscuro</option><option>Warm studio softbox</option><option>Low-key cinematic light</option><option>Gentle natural daylight</option></select></label>
+            <label class="creator-field"><span>Colour palette</span><select id="creatorPalette"><option>Warm sepia, ivory and umber</option><option>Monochrome charcoal and paper</option><option>Deep burgundy and warm ivory</option><option>Muted earth tones</option><option>Cool slate and silver</option><option>Classical ochre and Venetian red</option></select></label>
+            <label class="creator-field creator-span-2"><span>Your creative direction</span><textarea id="creatorSubject" rows="3" maxlength="700" placeholder="Describe the expression, gesture, setting, mood or details you want to study…">A confident adult art model in a calm studio, elegant posture and expressive silhouette</textarea></label>
+            <label class="creator-field creator-span-2"><span>Image model <small>(live official catalogue)</small></span><select id="creatorModel"><option value="">Loading available models…</option></select><small class="field-help" id="creatorModelNote">The live catalogue supplies available models. Model pricing can vary by image and settings.</small></label>
+            <label class="creator-field creator-span-2"><span>Output size</span><select id="creatorSize"><option value="1024x1024">Square · 1024 × 1024</option><option value="768x1024">Portrait · 768 × 1024</option><option value="1024x768">Landscape · 1024 × 768</option><option value="1024x1536">Tall poster · 1024 × 1536</option></select></label>
+          </div>
+
+          <div class="studio-quick-panel" aria-label="Quick creative directions">
+            <p>Creative direction starters · tap to prefill the existing prompt builder</p>
+            <div class="studio-quick-grid">
+              <button class="studio-quick-button" type="button" data-studio-preset="noir">Halloween Noir</button>
+              <button class="studio-quick-button" type="button" data-studio-preset="lace">Black Lace Editorial</button>
+              <button class="studio-quick-button" type="button" data-studio-preset="velvet">Velvet Shadow Portrait</button>
+              <button class="studio-quick-button" type="button" data-studio-preset="classic">Classical Art Study</button>
+              <button class="studio-quick-button" type="button" data-studio-preset="couple">Together Campaign</button>
+              <button class="studio-quick-button" type="button" data-studio-preset="ember">Ember Rose Editorial</button>
+            </div>
+            <p class="studio-quick-note">These buttons only prefill the current text-based prompt controls. They do not upload or send the campaign reference image to the model.</p>
+          </div>
+
+          <div class="creator-form-actions"><button class="button button-quiet" id="buildCreatorPrompt" type="button">Build prompt</button><button class="button button-primary" id="generateCreatorImage" type="button" disabled>Generate artwork ✦</button></div>
+          <p class="creator-helper">Prompt building and copying are free. Image generation requires a connected Pollinations account and may use your approved Pollen budget. Check the <a href="https://gen.pollinations.ai/image/models" target="_blank" rel="noopener noreferrer">live model catalogue</a> before generating.</p>
+        </div>
+
+        <div class="creator-result-panel">
+          <div class="creator-panel-heading"><span>02</span><div><h3>Your creative brief</h3><p>Edit the final prompt before sending it.</p></div></div>
+          <label class="creator-field"><span>Final image prompt</span><textarea id="creatorPrompt" rows="12" maxlength="3000" placeholder="Tap Build prompt to compose your art direction…"></textarea></label>
+          <div class="creator-prompt-actions"><button class="button button-quiet" id="copyCreatorPrompt" type="button">Copy prompt</button><button class="button button-quiet" id="saveCreatorPrompt" type="button">Save draft ♡</button><button class="button button-quiet" id="shuffleCreatorIdea" type="button">New inspiration ↻</button></div>
+          <div class="creator-output" id="creatorOutput" aria-live="polite">
+            <div class="creator-output-placeholder"><span>✦</span><strong>Your next masterpiece starts here.</strong><p>Generated artwork will appear in this space.</p></div>
+            <img id="creatorOutputImage" class="hidden" alt="AI-generated non-explicit fine-art image">
+            <div class="creator-output-actions hidden" id="creatorOutputActions"><button class="button button-primary" id="downloadCreatorImage" type="button">Download image ↓</button><button class="button button-quiet" id="openCreatorImage" type="button">Open full size ↗</button><button class="studio-save-output" id="saveCreatorOutput" type="button" disabled>Save to My Studio</button></div>
+          </div>
+          <div class="creator-generation-status" id="creatorGenerationStatus" role="status" aria-live="polite">Ready when you are. No image has been generated yet.</div>
+          <div class="studio-shelf" aria-labelledby="studioPromptShelfTitle">
+            <div class="studio-shelf-heading"><h4 id="studioPromptShelfTitle">Saved prompt drafts</h4><span>On this device · up to 12</span></div>
+            <div class="studio-shelf-list" id="studioPromptShelf"><p class="studio-shelf-empty">Save a creative brief to keep it for later.</p></div>
+          </div>
+          <div class="studio-shelf" aria-labelledby="studioOutputShelfTitle">
+            <div class="studio-shelf-heading"><h4 id="studioOutputShelfTitle">My Studio · generated links</h4><span>Links only · up to 12</span></div>
+            <div class="studio-shelf-list" id="studioOutputShelf"><p class="studio-shelf-empty">After generating an image, save its provider link here. Download important images to keep your own permanent copy.</p></div>
+            <p class="studio-upgrade-status" id="studioUpgradeStatus" role="status" aria-live="polite">Private local shelf. Nothing is uploaded to this website.</p>
+          </div>
+
+          <p class="creator-privacy-note">Privacy: your prompt and generation request go directly from this browser to Pollinations. This static gallery has no server and does not store your generated image or access token in its files. The temporary approved token is kept in this tab’s session only. Provider terms, moderation and model availability apply.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap saved-section" id="saved-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">05 / YOUR PRIVATE SHELF</p><h2>Saved <em>for later.</em></h2></div>
+        <p class="section-aside" data-voice data-en="Your favourites stay on this device. No account or app server needed." data-hi="Tumhare favourites isi device mein rehte hain. Account ya app server ki zaroorat nahi.">Your favourites stay on this device. No account or app server needed.</p>
+      </div>
+      <div class="saved-grid" id="savedGrid"></div>
+      <p class="empty-state" id="savedEmpty">Nothing saved yet. Tap the heart on an artwork or pose to keep it here.</p>
     </section>
   </main>
 
-  <nav class="bottom-nav" aria-label="Primary navigation">
-    <button class="nav-item is-active" data-action="navigate" data-view="home"><span>⌂</span><small>Home</small></button>
-    <button class="nav-item" data-action="navigate" data-view="shop"><span>♢</span><small>Shop</small></button>
-    <button class="nav-item nav-play" data-action="navigate" data-view="play"><span>✦</span><small>Play</small></button>
-    <button class="nav-item" data-action="navigate" data-view="art"><span>▧</span><small>Art</small></button>
-    <button class="nav-item" data-action="navigate" data-view="more"><span>☷</span><small>More</small></button>
-  </nav>
+  <footer class="site-footer wrap">
+    <a class="brand footer-brand" href="#top"><span class="brand-monogram">BP<span>•</span></span><span class="brand-words"><strong>BLACKED PUSSY</strong><small>INNERWEAR · ART AFTER DARK</small></span></a>
+    <p class="footer-tagline" data-voice data-en="Bold in style. Thoughtful in design. Respect always." data-hi="Style mein bold. Design mein thoughtful. Respect hamesha.">Bold in style. Thoughtful in design. Respect always.</p>
+    <div class="footer-links"><a href="SOURCES_AND_LICENCES.md" target="_blank" rel="noopener noreferrer">Sources & licences</a><a href="PHASES_1_3_CHANGELOG.md" target="_blank" rel="noopener noreferrer">Release notes</a></div>
+    <div class="pwa-footer-row"><button class="button button-quiet install-app hidden" id="installAppButton" type="button">Install app ↓</button><span id="connectionStatus" class="connection-status" role="status">Online · offline-ready library</span></div>
+    <small class="copyright">BLACKED PUSSY INNERWEAR · HALLOWEEN MEGA MERGE V1 · ADULT / NON-EXPLICIT PRESENTATION</small>
+  </footer>
 
-  <div class="modal-layer" id="modalLayer" hidden>
-    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <div class="modal-head"><div><p class="eyebrow" id="modalEyebrow">AFTER DARK / PLAY</p><h2 id="modalTitle">Tonight's game</h2></div><button class="icon-button" aria-label="Close dialog" data-action="close-modal">×</button></div>
-      <div class="modal-content" id="modalContent"></div>
-      <div class="modal-foot" id="modalFoot"></div>
-    </section>
+  <div class="modal-backdrop hidden" id="artModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="art-modal">
+      <button class="modal-close" id="closeArtModal" aria-label="Close artwork viewer">×</button>
+      <button class="modal-arrow modal-prev" id="prevArtwork" aria-label="Previous artwork">‹</button>
+      <div class="modal-image-wrap"><img id="modalImage" alt=""><span class="image-index" id="imageIndex"></span></div>
+      <div class="modal-info"><p class="eyebrow" id="modalMuseum">MUSEUM COLLECTION</p><h2 id="modalTitle"></h2><p class="modal-artist" id="modalArtist"></p><dl id="modalMeta"></dl><div class="modal-actions"><button class="button button-primary" id="modalSave">♡ Save artwork</button><a class="button button-quiet" id="sourceLink" href="#" target="_blank" rel="noopener noreferrer">View museum record ↗</a></div><p class="rights-note" id="modalRights"></p></div>
+      <button class="modal-arrow modal-next" id="nextArtwork" aria-label="Next artwork">›</button>
+    </div>
   </div>
+
+  <div class="modal-backdrop hidden" id="poseModal" role="dialog" aria-modal="true" aria-labelledby="poseModalTitle">
+    <div class="pose-modal">
+      <button class="modal-close" id="closePoseModal" aria-label="Close pose viewer">×</button>
+      <div class="pose-modal-header"><div><p class="eyebrow">POSE REFERENCE / <span id="poseModalId"></span></p><h2 id="poseModalTitle"></h2><p id="poseModalDesc"></p></div><button class="heart-button" id="poseModalSave" aria-label="Save pose">♡</button></div>
+      <div class="pose-stage" id="poseStage"><img id="poseModalImage" alt="Adult mannequin pose reference"><span class="pose-angle-label" id="poseAngleLabel">FRONT VIEW</span></div>
+      <div class="angle-switcher" id="angleSwitcher" aria-label="Choose camera angle">
+        <button class="angle-chip active" data-angle="front">Front</button><button class="angle-chip" data-angle="diag">3/4 view</button><button class="angle-chip" data-angle="side">Side</button><button class="angle-chip" data-angle="above">Above</button><button class="angle-chip" data-angle="below">Below</button>
+      </div>
+      <p class="rights-note">Pose line-art reference: Shisei project · CC0 1.0 image licence. Missing angle views are disabled.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="collectionModal" role="dialog" aria-modal="true" aria-labelledby="collectionModalTitle">
+    <div class="art-modal collection-modal">
+      <button class="modal-close" id="closeCollectionModal" aria-label="Close artwork viewer">×</button>
+      <div class="modal-image-wrap"><img id="collectionModalImage" alt=""></div>
+      <div class="modal-info"><p class="eyebrow" id="collectionModalMuseum">OPEN-ACCESS MUSEUM</p><h2 id="collectionModalTitle"></h2><p class="modal-artist" id="collectionModalArtist"></p><dl id="collectionModalMeta"></dl><div class="modal-actions"><button class="button button-primary" id="collectionModalSave" type="button">♡ Save artwork</button><a class="button button-quiet" id="collectionModalSource" href="#" target="_blank" rel="noopener noreferrer">View museum record ↗</a></div><p class="rights-note" id="collectionModalRights"></p></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop hidden" id="studioArtModal" role="dialog" aria-modal="true" aria-labelledby="studioArtModalTitle">
+    <div class="art-modal studio-art-modal">
+      <button class="modal-close" id="closeStudioArtModal" aria-label="Close studio artwork viewer">×</button>
+      <button class="modal-arrow modal-prev" id="prevStudioArt" aria-label="Previous studio artwork">‹</button>
+      <div class="modal-image-wrap studio-modal-image"><img id="studioArtModalImage" alt=""></div>
+      <div class="modal-info"><p class="eyebrow">CHATGPT LIBRARY · AI-GENERATED</p><h2 id="studioArtModalTitle"></h2><p class="modal-artist" id="studioArtModalStyle"></p><dl id="studioArtModalMeta"></dl><div class="modal-actions"><button class="button button-primary" id="studioArtModalSave" type="button">♡ Save to My Shelf</button><a class="button button-quiet" id="studioArtOpenImage" href="#" target="_blank" rel="noopener noreferrer">Open image ↗</a><a class="button button-quiet" id="studioArtDownload" href="#" download>Download WebP ↓</a></div><p class="rights-note" id="studioArtModalNote">Selected from your generated ChatGPT Library. Optimized WebP copy is stored with this static app.</p></div>
+      <button class="modal-arrow modal-next" id="nextStudioArt" aria-label="Next studio artwork">›</button>
+    </div>
+  </div>
+
+  <div class="bp-look-modal" id="bpLookModal" role="dialog" aria-modal="true" aria-labelledby="bpLookModalTitle" hidden>
+    <div class="bp-look-modal-card">
+      <button class="bp-look-close" id="bpLookClose" type="button" aria-label="Close campaign detail">×</button>
+      <img id="bpLookModalImage" alt="Selected innerwear campaign reference">
+      <div class="bp-look-modal-copy"><p class="bp-eyebrow" id="bpLookModalCategory">CAMPAIGN REFERENCE</p><h3 id="bpLookModalTitle"></h3><p id="bpLookModalCopy"></p><div class="bp-look-modal-actions"><button id="bpLookModalSave" type="button">♡ Save this look</button><a id="bpLookModalOriginal" href="#" target="_blank" rel="noopener noreferrer">Open original image ↗</a></div><p class="bp-fit-disclaimer">Campaign reference only. This page does not represent verified inventory, product pricing or a checkout offer.</p></div>
+    </div>
+  </div>
+
+  <div class="bp-archive-viewer" id="bpArchiveViewer" role="dialog" aria-modal="true" aria-labelledby="bpArchiveViewerTitle" hidden>
+    <div class="bp-archive-viewer-card">
+      <button class="bp-archive-close" id="bpArchiveViewerClose" type="button" aria-label="Close art viewer">×</button>
+      <button class="bp-archive-arrow prev" id="bpArchiveViewerPrev" type="button" aria-label="Previous artwork">‹</button>
+      <div class="bp-archive-viewer-image"><img id="bpArchiveViewerImage" alt="Selected artwork"></div>
+      <button class="bp-archive-arrow next" id="bpArchiveViewerNext" type="button" aria-label="Next artwork">›</button>
+      <div class="bp-archive-viewer-copy"><p class="bp-eyebrow" id="bpArchiveViewerIndex">ART ARCHIVE</p><h2 id="bpArchiveViewerTitle"></h2><p id="bpArchiveViewerDescription"></p><dl><dt>Medium</dt><dd id="bpArchiveViewerMedium"></dd><dt>Collections</dt><dd id="bpArchiveViewerCollection"></dd><dt>Asset source</dt><dd>User's Art- repository</dd></dl><div class="bp-archive-viewer-actions"><button id="bpArchiveViewerSave" type="button">♡ Save artwork</button><button id="bpArchiveViewerShare" type="button">↗ Share</button><a id="bpArchiveViewerOriginal" href="#" target="_blank" rel="noopener noreferrer">Open original ↗</a></div><p class="bp-archive-credit">Art archive image linked from the user's Art- repository. Check original source and rights before external commercial use.</p></div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <script src="./app.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="creator.js" defer></script>
+  <script src="artflip-figure-index.js" defer></script>
+  <script src="asset-path-fix.js" defer></script>
+  <script src="collections.js" defer></script>
+  <script src="brand-voice.js" defer></script>
+  <script src="library-art.js" defer></script>
+  <script src="pwa.js" defer></script>
+  <script src="halloween.js" defer></script>
+  <script src="innerwear.js" defer></script>
+  <script src="archive-merge.js" defer></script>
+  <script src="studio-enhancements.js" defer></script>
 </body>
 </html>
